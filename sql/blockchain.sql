@@ -10,5 +10,5 @@ CREATE TABLE `blockchain` (
   `type` varchar(20) NOT NULL ,
   `shortname` varchar(10) ,
   PRIMARY KEY (`blockchain_id`),
-  UNIQUE `idx_username`(`name`,`type`)
+  UNIQUE `idx_name_type`(`name`,`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 auto_increment=1;
