@@ -15,7 +15,7 @@ public class Block {
 
     private Long sizeOnDisk;
 
-    private Double deficulty;
+    private Double difficulty;
 
     private String prevBlockhash;
 
@@ -32,7 +32,7 @@ public class Block {
     }
 
     public void setBlockhash(String blockhash) {
-        this.blockhash = blockhash == null ? null : blockhash.trim();
+        this.blockhash = blockhash;
     }
 
     public Integer getBlockchainId() {
@@ -75,12 +75,12 @@ public class Block {
         this.sizeOnDisk = sizeOnDisk;
     }
 
-    public Double getDeficulty() {
-        return deficulty;
+    public Double getDifficulty() {
+        return difficulty;
     }
 
-    public void setDeficulty(Double deficulty) {
-        this.deficulty = deficulty;
+    public void setDifficulty(Double difficulty) {
+        this.difficulty = difficulty;
     }
 
     public String getPrevBlockhash() {
@@ -88,7 +88,7 @@ public class Block {
     }
 
     public void setPrevBlockhash(String prevBlockhash) {
-        this.prevBlockhash = prevBlockhash == null ? null : prevBlockhash.trim();
+        this.prevBlockhash = prevBlockhash;
     }
 
     public String getNextBlockhash() {
@@ -96,7 +96,7 @@ public class Block {
     }
 
     public void setNextBlockhash(String nextBlockhash) {
-        this.nextBlockhash = nextBlockhash == null ? null : nextBlockhash.trim();
+        this.nextBlockhash = nextBlockhash;
     }
 
     public Double getOutputTotal() {
@@ -120,6 +120,6 @@ public class Block {
     }
 
     public void setMerkleRoot(String merkleRoot) {
-        this.merkleRoot = merkleRoot == null ? null : merkleRoot.trim();
+        this.merkleRoot = merkleRoot;
     }
 }

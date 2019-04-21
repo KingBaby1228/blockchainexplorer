@@ -25,12 +25,14 @@ public class MiscController {
      * 同步系列
      */
     @GetMapping("/importFromHeight")
-    public void importFromHeight(@RequestParam Integer blockHeight, Boolean isClean){//是否需要清空
+    public void importFromHeight(@RequestParam Integer blockHeight,
+                                 @RequestParam(required = false,defaultValue = "false") Boolean isClean){//是否需要清空
         miscService.importFromHeight(blockHeight,isClean);
     }
 
     @GetMapping("/importFromHash")
-    public void importFromHash(@RequestParam String blockhash,Boolean isClean){
+    public void importFromHash(@RequestParam String blockhash,
+                               @RequestParam(required = false,defaultValue = "false") Boolean isClean) throws Throwable {
        miscService.importFromHash(blockhash,isClean);
     }
 

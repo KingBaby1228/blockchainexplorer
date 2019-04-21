@@ -5,6 +5,8 @@ import com.king.blockchainexplorer.po.Transaction;
 public interface TransactionMapper {
     int deleteByPrimaryKey(String txid);
 
+    int truncate();
+
     int insert(Transaction record);
 
     int insertSelective(Transaction record);

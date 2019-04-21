@@ -31,7 +31,7 @@ public class TempController {
         JSONObject mempoolInfo = bitcoinApi.getMempoolInfo();
         JSONObject mempoolContents = bitcoinApi.getMempoolContents();
         String blockByHeight = bitcoinJsonRpcClient.getBlockHashByHeight(894064);
-        String address = "";
-        JSONObject blance = bitcoinJsonRpcClient.getBlance(address);
+//        String address = "";
+//        JSONObject blance = bitcoinJsonRpcClient.getBlance(address);   //todo address 0418
     }
 }

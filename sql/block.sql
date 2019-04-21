@@ -11,7 +11,7 @@ CREATE TABLE `block` (
   `time` datetime NOT NULL,
   `tx_size` int(20) NOT NULL,
   `size_on_disk` bigint(20) NOT NULL,
-  `deficulty` double NOT NULL,
+  `difficulty` double NOT NULL,
   `prev_blockhash` char(64) ,
   `next_blockhash` char(64) ,
   `output_total` double ,
