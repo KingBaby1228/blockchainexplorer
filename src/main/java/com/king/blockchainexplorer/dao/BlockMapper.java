@@ -3,6 +3,8 @@ package com.king.blockchainexplorer.dao;
 
 import com.king.blockchainexplorer.po.Block;
 
+import java.util.List;
+
 public interface BlockMapper {
     int deleteByPrimaryKey(String blockhash);
 
@@ -11,6 +13,8 @@ public interface BlockMapper {
     int insert(Block record);
 
     int insertSelective(Block record);
+
+    List<Block> selectRecent();
 
     Block selectByPrimaryKey(String blockhash);
 
