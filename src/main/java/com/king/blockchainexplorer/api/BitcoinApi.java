@@ -1,6 +1,6 @@
 package com.king.blockchainexplorer.api;
 
-import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +23,7 @@ public interface BitcoinApi {
     JSONObject getNoTxBlock(@PathVariable("blockhash") String blockhash);
 
     @GetMapping("/rest/headers/{count}/{blockhash}.json")
-    JSONObject getBlockHeader(@PathVariable("count") Integer count ,@PathVariable("blockhash") String blockhash);
+    JSONArray getBlockHeader(@PathVariable("count") Integer count , @PathVariable("blockhash") String blockhash);
 
     @GetMapping("/rest/mempool/info.json")
     JSONObject getMempoolInfo();
@@ -32,4 +32,7 @@ public interface BitcoinApi {
     JSONObject getMempoolContents();
 
     //todo add getutxos api
+
+//    @GetMapping("/rest/getutxos/{txid}-{n}.json")
+//    JSONObject getUTXO(String txid,Integer n);
 }
