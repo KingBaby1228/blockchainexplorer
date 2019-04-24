@@ -8,16 +8,14 @@ import com.king.blockchainexplorer.dto.BlockListDTO;
 import com.king.blockchainexplorer.po.Block;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/block")
+@CrossOrigin
 public class BlockController {
 
     @Autowired
@@ -29,8 +27,8 @@ public class BlockController {
     @Autowired
     private BlockMapper blockMapper;
 
-    @Value("${blockchain.recentCount}")
-    private Integer recentCount;
+    /*@Value("${blockchain.recentCount}")
+    private Integer recentCount;*/
 
 
     @GetMapping("/getRecentBlocks")
@@ -39,7 +37,7 @@ public class BlockController {
         List<BlockListDTO> blockListDTOS = blocks.stream().map(block -> {
             BlockListDTO blockListDTO = new BlockListDTO();
             blockListDTO.setHeight(block.getHeight());
-            blockListDTO.setTime(block.getTime());    //时间--->long
+            blockListDTO.setTime(block.getTime().getTime());    //时间--->long
             blockListDTO.setTxSize(block.getTxSize());
             blockListDTO.setSizeOnDisk(block.getSizeOnDisk());
             return blockListDTO;

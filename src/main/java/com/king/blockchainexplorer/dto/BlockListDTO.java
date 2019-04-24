@@ -1,10 +1,9 @@
 package com.king.blockchainexplorer.dto;
 
-import java.util.Date;
 
 public class BlockListDTO {
     private Integer height;
-    private Date time;
+    private Long time;
     private Integer txSize;
     private Long sizeOnDisk;
 
@@ -16,11 +15,11 @@ public class BlockListDTO {
         this.height = height;
     }
 
-    public Date getTime() {
+    public Long getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(Long time) {
         this.time = time;
     }
 
