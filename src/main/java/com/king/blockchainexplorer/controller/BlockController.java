@@ -7,7 +7,6 @@ import com.king.blockchainexplorer.dto.BlockDetailDTO;
 import com.king.blockchainexplorer.dto.BlockListDTO;
 import com.king.blockchainexplorer.po.Block;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,9 +25,6 @@ public class BlockController {
 
     @Autowired
     private BlockMapper blockMapper;
-
-    /*@Value("${blockchain.recentCount}")
-    private Integer recentCount;*/
 
 
     @GetMapping("/getRecentBlocks")
@@ -61,11 +57,14 @@ public class BlockController {
     /*通过hash获取对应的block具体内容*/
     @GetMapping("/getBlockDetailByHash")
     public BlockDetailDTO getBlockDetailByHash(@RequestParam String blockhash){
-        return null;
+        Block block = blockMapper.selectByPrimaryKey(blockhash);
+        BlockDetailDTO blockDetailDTO = new BlockDetailDTO(block);
+        return blockDetailDTO;
     }
     /*通过height获取对应的block具体内容*/
     @GetMapping("/getBlockDetailByHeight")
     public BlockDetailDTO getBlockDetailByHeight(@RequestParam Integer blockheight){
-        return null;
+        BlockDetailDTO blockDetailByHeight = blockMapper.getBlockDetailByHeight(blockheight);
+        return blockDetailByHeight;
     }
 }

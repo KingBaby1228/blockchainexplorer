@@ -1,5 +1,7 @@
 package com.king.blockchainexplorer.dto;
 
+import com.king.blockchainexplorer.po.Block;
+
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +16,7 @@ public class BlockDetailDTO {
 
     private Long sizeOnDisk;
 
-    private Double deficulty;
+    private Double difficulty;
 
     private String prevBlockhash;
 
@@ -26,8 +28,25 @@ public class BlockDetailDTO {
 
     private String merkleRoot;
 
+    public  BlockDetailDTO(){};
+
+    public BlockDetailDTO(Block block){
+        this.blockhash =  block.getBlockhash();
+        this.height = block.getHeight();
+        this.difficulty = block.getDifficulty();
+        this.merkleRoot = block.getMerkleRoot();
+        this.nextBlockhash = block.getNextBlockhash();
+        this.prevBlockhash = block.getPrevBlockhash();
+        this.sizeOnDisk = block.getSizeOnDisk();
+        this.time = block.getTime();
+        this.txSize = block.getTxSize();
+    }
+
+
+
     //block中的transaction集合
     private List<TransactionInBlockDTO> transactions;
+
 
     public String getBlockhash() {
         return blockhash;
@@ -69,12 +88,12 @@ public class BlockDetailDTO {
         this.sizeOnDisk = sizeOnDisk;
     }
 
-    public Double getDeficulty() {
-        return deficulty;
+    public Double getDifficulty() {
+        return difficulty;
     }
 
-    public void setDeficulty(Double deficulty) {
-        this.deficulty = deficulty;
+    public void setDifficulty(Double difficulty) {
+        this.difficulty = difficulty;
     }
 
     public String getPrevBlockhash() {
